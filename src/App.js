@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
+import fakeData from'./fakeData/fake'
+import Header from './Components/Header/Header';
+import Courses from './Components/Courses/Courses';
 
 function App() {
+
+  
+  
+    const[cart,addCart]=useState([]);
+  const buyCourses =(course)=>{
+    const addCourse =[...cart,course];
+    
+    addCart(addCourse);
+  }
+
+  //   const first10 = fakeData.slice(0, 10);
+//   const [products, setProducts] = useState(first10);
+//   const[cart,addCart]=useState([]);
+
+//   const addProduct = (product) => {
+//       const addNewCart = [...cart ,product];
+//       addCart(addNewCart);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Header></Header>
+     
+
+       <Courses Data={fakeData}
+        /* handleApp={addProduct}
+                        products={product} */
+       courses={cart}
+       buyCourses={buyCourses}
+       ></Courses>
+
     </div>
   );
 }
