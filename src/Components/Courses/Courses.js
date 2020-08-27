@@ -2,7 +2,6 @@ import React from 'react';
 import "./Courses.css"
 import Sidebar from '../Sidebar/Sidebar';
 const Courses = (props) => {
-console.log("hii",props.handleCourses);
     return (
         <div className="container ">
             <div className="row">
